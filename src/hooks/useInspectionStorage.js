@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
 
+const emptyInspection = {
+  completed: [],
+  findings: {},
+  notes: {},
+  photos: {},
+};
+
 function useInspectionStorage() {
   const [inspectionData, setInspectionData] = useState(() => {
     const savedData = localStorage.getItem("carscope-inspection");
@@ -8,12 +15,7 @@ function useInspectionStorage() {
       return JSON.parse(savedData);
     }
 
-    return {
-      completed: [],
-      findings: {},
-      notes: {},
-      photos: {},
-    };
+    return emptyInspection;
   });
 
   useEffect(() => {

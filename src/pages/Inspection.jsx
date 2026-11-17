@@ -149,17 +149,32 @@ function Inspection() {
     )
   ).length;
 
-  const goToNextZone = () => {
-    if (currentZoneIndex < inspectionZones.length - 1) {
-      setCurrentZoneIndex(currentZoneIndex + 1);
-    }
-  };
+  const scrollToZone = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
-  const goToPreviousZone = () => {
-    if (currentZoneIndex > 0) {
-      setCurrentZoneIndex(currentZoneIndex - 1);
-    }
-  };
+const goToNextZone = () => {
+  if (currentZoneIndex < inspectionZones.length - 1) {
+    setCurrentZoneIndex((previous) => previous + 1);
+
+    setTimeout(() => {
+      scrollToZone();
+    }, 50);
+  }
+};
+
+const goToPreviousZone = () => {
+  if (currentZoneIndex > 0) {
+    setCurrentZoneIndex((previous) => previous - 1);
+
+    setTimeout(() => {
+      scrollToZone();
+    }, 50);
+  }
+};
 
   return (
     <main className="inspection-page">
@@ -202,9 +217,13 @@ function Inspection() {
                 } ${
                   zoneCompleted ? "completed-zone" : ""
                 }`}
-                onClick={() =>
-                  setCurrentZoneIndex(index)
-                }
+                onClick={() => {
+                setCurrentZoneIndex(index);
+
+                setTimeout(() => {
+                  scrollToZone();
+                }, 50);
+              }}
               >
                 {zoneCompleted ? "✓ " : ""}
                 {index + 1}. {zone.name}

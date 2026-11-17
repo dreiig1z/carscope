@@ -36,12 +36,23 @@ function NewInspection() {
       return;
     }
 
-    localStorage.setItem(
-      "carscope-vehicle",
-      JSON.stringify(vehicle)
-    );
 
-    window.location.href = "/inspection";
+      localStorage.setItem(
+        "carscope-inspection",
+        JSON.stringify({
+          completed: [],
+          findings: {},
+          notes: {},
+          photos: {},
+        })
+      );
+
+      localStorage.setItem(
+        "carscope-vehicle",
+        JSON.stringify(vehicle)
+      );
+
+      window.location.href = "/inspection";
   };
 
   const mileage = Number(vehicle.mileage);
