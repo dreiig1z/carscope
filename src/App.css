@@ -3707,4 +3707,46 @@
   transform: translateY(0);
 }
 
+/* NEW INSPECTION BUTTON */
 
+.new-inspection-button {
+  margin-top: 14px;
+  padding: 11px 18px;
+  border: 1px solid #4fa3d1;
+  border-radius: 8px;
+  background: #4fa3d1;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.new-inspection-button:hover {
+  background: #3d91bf;
+  border-color: #3d91bf;
+  transform: translateY(-1px);
+}
+
+.new-inspection-button:active {
+  transform: translateY(0);
+}
+
+/* PAGE ENTER ANIMATION */
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.45s ease-out;
+}

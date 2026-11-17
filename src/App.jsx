@@ -24,7 +24,6 @@ function App() {
     );
   } else if (path === "/new-inspection") {
     page = <NewInspection />;
-
   } else if (path === "/inspection") {
     page = <Inspection />;
   } else if (path === "/report") {
@@ -44,7 +43,9 @@ function App() {
   return (
     <>
       <Navbar />
-      {page}
+      <div className="page-enter">
+        {page}
+      </div>
     </>
   );
 }

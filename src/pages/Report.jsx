@@ -54,7 +54,7 @@ function Report() {
 
     window.location.href = "/inspection";
   };
-  
+
   return (
     <main className="report-page">
       <div className="report-container">
@@ -333,10 +333,15 @@ function Report() {
         </section>
 
         <button
-          className="primary-button"
-          onClick={() => window.print()}
+          className="new-inspection-button"
+          onClick={() => {
+            localStorage.removeItem("carscope-return-from-report");
+            localStorage.removeItem("carscope-return-zone");
+
+            window.location.href = "/experience";
+          }}
         >
-          Print / Save Report
+          New Inspection
         </button>
 
       </div>
