@@ -332,17 +332,43 @@ function Report() {
           </p>
         </section>
 
-        <button
-          className="new-inspection-button"
-          onClick={() => {
-            localStorage.removeItem("carscope-return-from-report");
-            localStorage.removeItem("carscope-return-zone");
+        <div className="report-action-buttons">
+            <button
+              className="edit-inspection-button"
+              onClick={() => {
+                localStorage.setItem(
+                  "carscope-return-from-report",
+                  "true"
+                );
 
-            window.location.href = "/experience";
-          }}
-        >
-          New Inspection
-        </button>
+                localStorage.setItem(
+                  "carscope-return-zone",
+                  "0"
+                );
+
+                window.location.href = "/inspection";
+              }}
+            >
+              Edit Inspection
+            </button>
+
+            <button
+              className="new-inspection-button"
+              onClick={() => {
+                localStorage.removeItem(
+                  "carscope-return-from-report"
+                );
+
+                localStorage.removeItem(
+                  "carscope-return-zone"
+                );
+
+                window.location.href = "/experience";
+              }}
+            >
+              New Inspection
+            </button>
+          </div>
 
       </div>
     </main>

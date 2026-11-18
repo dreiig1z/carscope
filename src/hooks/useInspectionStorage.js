@@ -8,7 +8,7 @@ const emptyInspection = {
 };
 
 function useInspectionStorage() {
-  const [inspectionData, setInspectionData] = useState(() => {
+  const [inspectionData, setInspectionDataState] = useState(() => {
     const savedData = localStorage.getItem("carscope-inspection");
 
     if (savedData) {
@@ -17,6 +17,22 @@ function useInspectionStorage() {
 
     return emptyInspection;
   });
+
+  const setInspectionData = (update) => {
+    setInspectionDataState((previous) => {
+      const nextData =
+        typeof update === "function"
+          ? update(previous)
+          : update;
+
+      localStorage.setItem(
+        "carscope-inspection",
+        JSON.stringify(nextData)
+      );
+
+      return nextData;
+    });
+  };
 
   useEffect(() => {
     localStorage.setItem(

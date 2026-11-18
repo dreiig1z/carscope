@@ -3750,3 +3750,37 @@
 .page-enter {
   animation: pageEnter 0.45s ease-out;
 }
+
+.report-action-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.edit-inspection-button {
+  padding: 11px 18px;
+  border: 1px solid #4fa3d1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #4fa3d1;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.edit-inspection-button:hover {
+  background: #e4f7ff;
+  border-color: #3d91bf;
+  transform: translateY(-1px);
+}
+
+.edit-inspection-button:active {
+  transform: translateY(0);
+}
+
+.report-action-buttons .new-inspection-button {
+  margin-top: 0;
+}
